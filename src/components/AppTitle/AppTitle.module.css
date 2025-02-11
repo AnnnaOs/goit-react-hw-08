@@ -1,0 +1,19 @@
+.homeContainer {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.appTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-align: center;
+  margin-bottom: 15px;
+  /* color: teal; */
+}

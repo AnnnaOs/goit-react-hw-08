@@ -1,0 +1,22 @@
+.contactDeleteBtn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: none;
+  background-color: teal;
+  color: #ffffff;
+  height: 30px;
+  border-radius: 60px;
+  /* width: 100px; */
+  margin: 0 auto;
+  padding: 10px 15px;
+  box-shadow: 0 4px 4px #00000026;
+  font-size: 15px;
+  transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contactDeleteBtn:hover {
+  background-color: #66e6b1;
+  color: #fafafa;
+}

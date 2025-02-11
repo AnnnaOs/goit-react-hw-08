@@ -1,0 +1,16 @@
+.authNavWrap {
+  display: flex;
+  gap: 20px;
+}
+
+.navLink {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px;
+  font-weight: 700;
+  color: teal;
+}
+
+.navLink.active {
+  color: rgb(71, 214, 214);
+}

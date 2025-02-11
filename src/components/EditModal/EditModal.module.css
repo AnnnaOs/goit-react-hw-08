@@ -1,3 +1,7 @@
+.modal {
+  background-color: transparent;
+}
+
 .contactFormWrap {
   display: flex;
   flex-direction: column;
@@ -6,7 +10,7 @@
   border-radius: 20px;
   padding: 10px;
   max-width: 450px;
-  margin: 0 auto 20px;
+  margin: 0 auto;
   box-shadow: 0 4px 10px #00000040;
   background-color: #f6f6f6;
 }
@@ -49,7 +53,7 @@
   align-items: center;
   gap: 5px;
   border: none;
-  background-color: #008080;
+  background-color: teal;
   color: white;
   box-shadow: 0 4px 4px #00000026;
   height: 30px;

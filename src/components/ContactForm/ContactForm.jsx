@@ -1,8 +1,10 @@
+import { useDispatch } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
+import AppTitle from '../AppTitle/AppTitle';
+import { addContactThunk } from '../../redux/contacts/operations';
 import { BsPhone, BsPerson, BsPersonAdd } from 'react-icons/bs';
-import { addContact } from '../../redux/contactsOps';
+import { RiContactsBook3Line } from 'react-icons/ri';
 import css from './ContactForm.module.css';
 
 const initialValues = {
@@ -25,59 +27,67 @@ const ContactForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, { resetForm }) => {
-    dispatch(addContact(values));
+    dispatch(addContactThunk(values));
     resetForm();
   };
 
   return (
-    <Formik
-      onSubmit={handleSubmit}
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-    >
-      <Form autoComplete="off" className={css.contactFormWrap}>
-        <label className={css.contactFormLabel} htmlFor="name">
-          Name
-        </label>
-        <div className={css.contactFormInputWrap}>
-          <Field
-            className={css.contactFormInput}
-            type="text"
+    <>
+      <AppTitle>
+        <>
+          <RiContactsBook3Line style={{ color: 'teal' }} />
+          <span style={{ color: 'teal' }}>Phonebook</span>
+        </>
+      </AppTitle>
+      <Formik
+        onSubmit={handleSubmit}
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+      >
+        <Form autoComplete="off" className={css.contactFormWrap}>
+          <label className={css.contactFormLabel} htmlFor="name">
+            Name
+          </label>
+          <div className={css.contactFormInputWrap}>
+            <Field
+              className={css.contactFormInput}
+              id="name"
+              type="text"
+              name="name"
+            />
+            <BsPerson className={css.contactFormIcon} size="20" />
+          </div>
+          <ErrorMessage
             name="name"
-            id="name"
+            component="span"
+            className={css.contactFormError}
           />
-          <BsPerson className={css.contactFormIcon} size="20" />
-        </div>
-        <ErrorMessage
-          name="name"
-          component="span"
-          className={css.contactFormError}
-        />
 
-        <label className={css.contactFormLabel} htmlFor="number">
-          Number
-        </label>
-        <div className={css.contactFormInputWrap}>
-          <Field
-            className={css.contactFormInput}
-            type="text"
+          <label className={css.contactFormLabel} htmlFor="number">
+            Number
+          </label>
+          <div className={css.contactFormInputWrap}>
+            <Field
+              className={css.contactFormInput}
+              id="number"
+              type="text"
+              name="number"
+            />
+            <BsPhone className={css.contactFormIcon} size="20" />
+          </div>
+          <ErrorMessage
             name="number"
-            id="number"
+            component="span"
+            className={css.contactFormError}
           />
-          <BsPhone className={css.contactFormIcon} size="20" />
-        </div>
-        <ErrorMessage
-          name="number"
-          component="span"
-          className={css.contactFormError}
-        />
 
-        <button className={css.contactFormBtn} type="submit">
-          <BsPersonAdd className={css.contactFormBtnIcon} size="15" />
-          Add contact
-        </button>
-      </Form>
-    </Formik>
+          <button className={css.contactFormBtn} type="submit">
+            <BsPersonAdd className={css.contactFormBtnIcon} size="15" />
+            Add contact
+          </button>
+        </Form>
+      </Formik>
+    </>
   );
 };
 
